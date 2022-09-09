@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1em;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  cursor: pointer;
+}

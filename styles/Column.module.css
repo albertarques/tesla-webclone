@@ -1,0 +1,38 @@
+.column {
+  width: 100%;
+  display: block;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.columnText {
+  width: 100%;
+  display: block;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.black {
+  color: white;
+  background-color: black;
+}
+
+@media (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .column {
+    padding: 0;
+  }
+}

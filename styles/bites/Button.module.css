@@ -1,0 +1,27 @@
+.alignCenter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.button {
+  border-radius: 2em;
+  background-color: transparent;
+  border: 0.2em solid #fff;
+  padding: 0.8em 1.8em;
+  font-weight: 500;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 1em;
+  color: #fff;
+}
+
+.button:active {
+  color: #000;
+  background-color: rgba(255, 255, 255, 100);
+}
+
+.button_a {
+  padding: 0.5em 1em;
+}

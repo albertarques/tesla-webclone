@@ -1,0 +1,55 @@
+.heroblock_between {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  justify-content: space-between;
+  padding: 4em 0 4em 0;
+}
+
+.heroblock_form {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  text-align: left;
+  justify-content: center;
+  padding: 4em 0 4em 0;
+}
+
+.heroblock_center {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  padding: 4em 0 4em 0;
+}
+
+.white {
+  color: #fff;
+}
+
+.heroImg {
+  height: 100vh;
+  z-index: -999;
+  position: relative;
+}
+
+.h2 {
+  padding: 0 1em 0 1em;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.p {
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+
+.button {
+  background-color: aqua;
+}

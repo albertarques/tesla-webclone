@@ -1,0 +1,25 @@
+.form {
+  width: 20%;
+  min-width: 20em;
+  max-width: 30em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0 0 0;
+  z-index: 999;
+  justify-content: center;
+  position: relative;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 1em;
+}
+
+.h2 {
+  margin: 0 0 1em 0;
+}
+
+.inputText {
+  border-radius: 1em;
+  padding: 0.3em 0.8em;
+  font-size: 1em;
+}

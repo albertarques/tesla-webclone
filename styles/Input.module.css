@@ -1,0 +1,26 @@
+.inputRow {
+  display: inline-flex;
+  height: 2em;
+  width: 100%;
+  margin: 0 0 0.5em 0;
+}
+
+.iconContainer {
+  width: 2em;
+  height: 2em;
+  padding: 0.2em;
+  border-radius: 0.4em;
+  position: absolute;
+}
+
+.icon {
+  height: 100%;
+}
+
+.inputText {
+  height: 100%;
+  width: inherit;
+  border-radius: 0.4em;
+  border: 1px solid;
+  padding: 0 0 0 2.5em;
+}
