@@ -4,7 +4,10 @@ import Form from "../components/Form";
 import Input from "../components/bites/Input";
 import Button from "../components/bites/Button";
 import { useRouter } from "next/router";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  browserSessionPersistence,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth, persistenceUserLogged } from "../firebase";
 import { useState } from "react";
 
@@ -24,7 +27,7 @@ export default function Login() {
           // ...
         }
       );
-      // persistenceUserLogged(); // Persist login info
+      persistenceUserLogged(browserSessionPersistence); // Persist login info
       // onAuthStateChanged();
       push("/logged");
     } catch (error) {
