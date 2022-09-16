@@ -7,6 +7,14 @@ import {config} from "../data/data"
 
 export default function Layout({children, title, description, footer}) {
 
+  function isFooter(footer) {
+    if(footer !== undefined){
+      return(
+        <Footer />
+      )
+    }
+  }
+  
   return (
     <>
       <Head>
@@ -24,13 +32,6 @@ export default function Layout({children, title, description, footer}) {
   )
 }
 
-function isFooter(footer) {
-  if(footer !== undefined){
-    return(
-      <Footer />
-    )
-  }
-}
 
 Layout.defaultProps = {
   title: config.config.layoutDefaults.title,
