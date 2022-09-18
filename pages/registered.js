@@ -1,12 +1,13 @@
 import HeroBlock from "../components/HeroBlock";
 import Layout from "../components/Layout";
 import { GoToHome } from "../utils/Routes";
+import { auth } from "../lib/Firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Registered() {
   const [user] = useAuthState(auth);
 
-  if (!user) {
+  if (user) {
     return (
       <Layout>
         <HeroBlock
@@ -18,6 +19,15 @@ export default function Registered() {
       </Layout>
     );
   } else {
-    GoToHome();
+    return (
+      <Layout>
+        <HeroBlock
+          picture="/img/25-Hero-D.jpg"
+          alt="Casa con paneles solares en el tejado"
+          title={"Usuario no identificado"}
+          p={"Por favor, identifíquese o regístrese."}
+        ></HeroBlock>
+      </Layout>
+    );
   }
 }
