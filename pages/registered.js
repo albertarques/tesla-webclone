@@ -1,6 +1,7 @@
 import HeroBlock from "../components/HeroBlock";
 import Layout from "../components/Layout";
 import { GoToHome } from "../utils/Routes";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Registered() {
   const [user] = useAuthState(auth);
