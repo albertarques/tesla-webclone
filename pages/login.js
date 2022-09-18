@@ -3,61 +3,49 @@ import HeroBlock from "../components/HeroBlock";
 import Form from "../components/Form";
 import Input from "../components/bites/Input";
 import Button from "../components/bites/Button";
-import { useRouter } from "next/router";
-import {
-  browserSessionPersistence,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { auth, persistenceUserLogged } from "../firebase";
+
 import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, loginUser } from "../lib/Firebase";
+import { GoToLoggedIn } from "../utils/Routes";
 
 export default function Login() {
-  const { push } = useRouter();
+  // On every page that need user, loading or error, we need to refer useStateAuth
+  const [user] = useAuthState(auth);
 
-  const [Username, setUsername] = useState();
-  const [Password, setPassword] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-  const loginUser = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, Username, Password).then(
-        (userCredential) => {
-          // Signed in
-          user = userCredential.user;
-          // ...
-        }
-      );
-      persistenceUserLogged(browserSessionPersistence); // Persist login info
-      // onAuthStateChanged();
-      push("/logged");
-    } catch (error) {
-      console.log(error.code);
-      console.log(error.message);
+  if (!user) {
+    return (
+      <Layout>
+        <HeroBlock form picture="/img/hero@2.jpg" alt="Modelo S en color rojo">
+          <Form title="Login" submit={(e) => loginUser(e, email, password)}>
+            <Input
+              id="user"
+              label="Email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              id="password"
+              label="Contraseña"
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button text="Enviar" />
+          </Form>
+        </HeroBlock>
+      </Layout>
+    );
+  }
+  if (user) {
+    {
+      GoToLoggedIn();
     }
-  };
-
-  return (
-    <Layout>
-      <HeroBlock form picture="/img/hero@2.jpg" alt="Modelo S en color rojo">
-        <Form title="Login" submit={loginUser}>
-          <Input
-            id="user"
-            label="Email"
-            type="email"
-            name="email"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Input
-            id="password"
-            label="Contraseña"
-            type="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {/* <Button text="Enviar" /> */}
-        </Form>
-        <Button text="Enviar" onClick={loginUser} />
-      </HeroBlock>
-    </Layout>
-  );
+  }
 }
