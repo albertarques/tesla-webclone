@@ -1,59 +1,47 @@
 
 import styles from "../styles/Nav.module.css"
 import Link from "next/link"
-import { getAuth, signOut, onAuthStateChanged} from "firebase/auth";
-import { auth } from "../firebase";
-import { useRouter } from "next/router";
+import { auth, logOut } from "../lib/Firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Nav() {
 
-  const {push} = useRouter();
-  const user = auth.currentUser;
+  const [user] = useAuthState(auth);
 
-  return ( 
-    <>
-    <nav className={styles.nav}>
-      <ul className={styles.ul}>
-        {isUserLoggedIn}
+  function isUserLogged() {
+    if (user) {
+      return (
+      <li className={styles.li}>
+        <a onClick={logOut}>Log Out</a>
+      </li>
+    )}
+  }
+
+  function isUserLogOut() {
+    if (!user) {
+      return (
+        <>
         <li className={styles.li}>
           <Link href="/register">
             Registrate
           </Link>
         </li>
         <li className={styles.li}>
-          <Link href="/login">
-            Acceder
-          </Link>  
+            <Link href={"/login"}>Login</Link>
         </li>
-        <li className={styles.li_red}>
-          <a onClick={logOut}>
-            Salir
-          </a>
-        </li>  
+        </>
+      );
+    }
+  }
+
+  return ( 
+    <>
+    <nav className={styles.nav}>
+      <ul className={styles.ul}>
+        {isUserLogOut()}
+        {isUserLogged()}
       </ul>
     </nav>
     </>
   )
-}
-
-// const user = auth.currentUser;
-function logOut() {
-  const auth = getAuth();
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    push("/")
-  }).catch((error) => {
-    // An error happened.
-  });
-}
-
-
-function isUserLoggedIn() {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    // ...
-  } else {
-    // No user is signed in.
-  }  
 }
