@@ -1,7 +1,5 @@
 import HeroBlock from "../components/HeroBlock"
 import Layout from "../components/Layout"
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useRouter } from "next/router";
 
 export default function Registered() {
 
