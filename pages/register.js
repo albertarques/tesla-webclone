@@ -2,11 +2,11 @@ import Layout from "../components/Layout";
 import Form from "../components/Form";
 import Input from "../components/bites/Input";
 import Button from "../components/bites/Button";
-import { useState } from "react";
 import HeroBlock from "../components/HeroBlock";
+
+import { useState } from "react";
 import { registerUser } from "../lib/Firebase";
-import { useRouter } from "next/router";
-import { GoToRegistered } from "../utils/Routes";
+import { GoToLoggedIn } from "../utils/Routes";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../lib/Firebase";
 
@@ -19,7 +19,7 @@ export default function Register() {
   const [valPassword, setValPassword] = useState();
 
   if (user) {
-    GoToRegistered();
+    GoToLoggedIn();
   }
   if (!user) {
     return (
