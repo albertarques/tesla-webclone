@@ -42,8 +42,7 @@ export default function Login() {
         </HeroBlock>
       </Layout>
     );
-  }
-  if (user) {
+  } else {
     {
       GoToLoggedIn();
     }
