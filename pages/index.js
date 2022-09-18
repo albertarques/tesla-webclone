@@ -13,7 +13,7 @@ export default function Home() {
         // Button
         button
         href="/model-s"
-        buttonText="Know more"
+        buttonText="Saber más"
       />
     </Layout>
   );
