@@ -1,13 +1,10 @@
-import { push } from "next/router";
+import { useRouter } from "next/router";
 
-export function GoToHome() {
-  push("/");
-}
-
-export function GoToRegistered() {
-  push("/registered");
-}
-
-export function GoToLoggedIn() {
-  push("/logged");
+export function GoTo(href) {
+  const { push } = useRouter();
+  if (!href) {
+    push("/");
+  } else {
+    push(href);
+  }
 }
