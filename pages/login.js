@@ -7,7 +7,7 @@ import Button from "../components/bites/Button";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, loginUser } from "../lib/Firebase";
-import { GoToLoggedIn } from "../utils/Routes";
+import { GoTo } from "../utils/Routes";
 
 export default function Login() {
   // On every page that need user, loading or error, we need to refer useStateAuth
@@ -44,7 +44,7 @@ export default function Login() {
     );
   } else {
     {
-      GoToLoggedIn();
+      GoTo("logged");
     }
   }
 }

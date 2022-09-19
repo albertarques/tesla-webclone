@@ -6,7 +6,7 @@ import HeroBlock from "../components/HeroBlock";
 
 import { useState } from "react";
 import { registerUser } from "../lib/Firebase";
-import { GoToLoggedIn } from "../utils/Routes";
+import { GoTo } from "../utils/Routes";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../lib/Firebase";
 
@@ -19,7 +19,7 @@ export default function Register() {
   const [valPassword, setValPassword] = useState();
 
   if (user) {
-    GoToLoggedIn();
+    GoTo("registered");
   }
   if (!user) {
     return (
